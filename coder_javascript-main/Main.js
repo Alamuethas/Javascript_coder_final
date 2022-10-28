@@ -35,10 +35,6 @@ function ingreso() {
   let pacienteEdad = document.getElementById("edad").value;
   let sintomasconsola = document.getElementById("sintomatologia").value;
 
-  /*   let response = await fetch(
-      `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${sintomasconsola}`
-    );
-   */
   paciente = new Persona(
     pacienteNombre,
     pacienteApellido,
@@ -56,11 +52,11 @@ function creartarjetas() {
   const cards = " ";
 
   cards;
-
+/* Constructor de tarjetas. */
   Datos.forEach((paciente) => {
     cards += `
         <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="..." alt="">
         <div class="card-body">
         <h5 class="card-title">Paciente</h5>
         <p class="card-text">${paciente.nombre} ,${paciente.apellido}</p>
@@ -85,7 +81,6 @@ function handleClickBtn(sintomasconsola) {
 /* CREA LA LISTA DE PACIENTES. */
 const crearHtml = () => {
   let cuerpoModal = document.getElementById("contenidoDelModal");
-  console.log(cuerpoModal);
   Datos = JSON.parse(localStorage.getItem("Lista"));
   console.log(Datos);
   //   limpiarHtml();
@@ -93,9 +88,9 @@ const crearHtml = () => {
   Datos.forEach((paciente) => {
     cuerpoModal.innerHTML += `
                                 <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="..." alt="Card image cap">
+                                <img class="card-img-top" src="..." alt="">
                                 <div class="card-body">
-                                <h5 class="card-title">Paciente</h5>
+                                <h5 class="card-title">Paciente :</h5>
                                 <p class="card-text">${paciente.nombre} ,${paciente.apellido}</p>
                                 <a href="" onClick="handleClickBtn('${paciente.sintomatologia}')" data-bs-toggle="modal" data-bs-target="#idmodalqr" class="btn btn-secondary">Ver tu QR</a>
                                 </div>
